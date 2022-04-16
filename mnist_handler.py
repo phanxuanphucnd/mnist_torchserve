@@ -4,7 +4,7 @@
 
 from torchvision import transforms
 from ts.torch_handler.image_classifier import ImageClassifier
-from torch.profiler import ProfilerActivity
+from torch.profiler import ProfilerActivity, tensorboard_trace_handler
 
 
 class MNISTDigitClassifier(ImageClassifier):
@@ -24,6 +24,7 @@ class MNISTDigitClassifier(ImageClassifier):
         self.profiler_args = {
             "activities" : [ProfilerActivity.CPU],
             "record_shapes": True,
+            "on_trace_ready": tensorboard_trace_handler("/tmp/pytorch_profiler/mnist")
         }
 
 
