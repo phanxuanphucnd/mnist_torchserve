@@ -1,4 +1,4 @@
-# Test torchserve with Mnist 
+# Test Torchserve with mnist 
 
 
 ### Usage
